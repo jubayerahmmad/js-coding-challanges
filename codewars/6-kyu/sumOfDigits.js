@@ -1,4 +1,13 @@
 // Finding sum of digits of a number until sum becomes single digit(digital root)
+/* Steps to solve the problem:
+ 1. Convert the number to a string to easily access each digit.
+ 2. Check if the number is already a single digit (less than 10). If yes, return the number.
+ 3. Initialize a variable to store the sum of the digits.
+ 4. Iterate through each character of the string representation of the number.
+ 5. Convert each character back to a number and add it to the sum.
+ 6. Recursively call the function with the sum until the result is a single digit.
+ 7. Return the final single-digit result.
+*/
 
 // recursive approach
 function digitalRoot(n) {

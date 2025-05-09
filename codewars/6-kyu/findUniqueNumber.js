@@ -1,4 +1,13 @@
-// There is an array with some numbers. All numbers are equal except for one. Try to find it!
+/**
+ * There is an array with some numbers. All numbers are equal except for one. Try to find it!
+ *
+ * Steps to solve:
+ * 1. Check the first three elements of the array to determine the unique number's pattern.
+ * 2. If the first element is different from the second and third, return the first element.
+ * 3. Otherwise, iterate through the array starting from the second element.
+ * 4. Compare each element with the first element to find the unique number.
+ * 5. Return the unique number once found.
+ */
 
 /* function findUniq(arr) {
   let unique = {};
