@@ -27,10 +27,10 @@ const createCounter = function (init) {
 };
 
 const counter = createCounter(5);
-console.log(counter.increment());
-console.log(counter.increment());
-console.log(counter.increment());
-console.log(counter.reset());
-console.log(counter.decrement());
-console.log(counter.decrement());
-console.log(counter.decrement());
+console.log(counter.increment()); // 6
+console.log(counter.increment()); // 7
+console.log(counter.increment()); // 8
+console.log(counter.reset()); // 5
+console.log(counter.decrement()); // 4
+console.log(counter.decrement()); // 3
+console.log(counter.decrement()); // 2
