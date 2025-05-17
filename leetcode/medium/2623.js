@@ -42,4 +42,4 @@ const memoizedFn = memoize(function (a, b) {
 });
 console.log(memoizedFn(1, -1)); // 0
 console.log(memoizedFn(1, -1)); // 0
-console.log(callCount); // 1
+console.log(callCount); // 1 (it will increase if cache[key] used in if blocks as the fn returns 0)
