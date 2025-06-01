@@ -15,6 +15,9 @@ var promiseAll = function (functions) {
   return new Promise((resolve, reject) => {
     let resolvedPromise = Array(functions.length);
     let pending = functions.length;
+
+    if (pending === 0) return resolve([]); // if the array of funtions is empty
+
     functions.forEach((fn, i) => {
       fn()
         .then((result) => {
