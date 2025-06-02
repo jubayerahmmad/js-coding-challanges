@@ -30,17 +30,32 @@
 
 // console.log(timeoutId, timeoutId2);
 
-var isEmpty = function (obj) {
-  for (let key in obj) {
-    console.log(key);
+// var isEmpty = function (obj) {
+//   for (let key in obj) {
+//     console.log(key);
 
-    // If the object has at least one property, it's not empty
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      return false;
-    }
+//     // If the object has at least one property, it's not empty
+//     if (Object.prototype.hasOwnProperty.call(obj, key)) {
+//       return false;
+//     }
+//   }
+//   return true;
+// };
+
+// console.log(isEmpty([null, true, 69]));
+// console.log(isEmpty({ x: 6 }));
+
+Array.prototype.groupBy = function (fn) {
+  let result = {};
+
+  for (i = 0; i < this.length; i++) {
+    const key = fn(this[i]);
+    if (!result[key]) result[key] = [];
+    result[key].push(this[i]);
   }
-  return true;
+  console.log(result);
+
+  return result;
 };
 
-console.log(isEmpty([null, true, 69]));
-console.log(isEmpty({ x: 6 }));
+[{ id: "1" }, { id: "1" }, { id: "2" }].groupBy(String); // {"1":[1],"2":[2],"3":[3]
