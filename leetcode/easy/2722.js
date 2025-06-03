@@ -9,25 +9,44 @@
  * If a key is included in both objects, the value in the object from arr2 should override the value from arr1.
  */
 
-const join = function (arr1, arr2) {
-  const joinedArray = [];
+// const join = function (arr1, arr2) {
+//   const joinedArray = [];
 
-  for (let el of arr1) {
-    joinedArray.push(el);
+//   for (let el of arr1) {
+//     joinedArray.push(el);
+//   }
+
+//   for (let el of arr2) {
+//     const idx = joinedArray.findIndex((element) => element.id === el.id);
+
+//     if (idx !== -1) {
+//       joinedArray[idx] = { ...joinedArray[idx], ...el };
+//     } else {
+//       joinedArray.push(el);
+//     }
+//   }
+//   const sortedJoinedArray = joinedArray.sort((a, b) => a.id - b.id);
+
+//   return sortedJoinedArray;
+// };
+
+// optimized solution
+const join = function (arr1, arr2) {
+  const result = {};
+
+  for (let obj of arr1) {
+    result[obj.id] = obj;
   }
 
-  for (let el of arr2) {
-    const idx = joinedArray.findIndex((element) => element.id === el.id);
-
-    if (idx !== -1) {
-      joinedArray[idx] = { ...joinedArray[idx], ...el };
+  for (let obj of arr2) {
+    if (result[obj.id]) {
+      result[obj.id] = { ...result[obj.id], ...obj };
     } else {
-      joinedArray.push(el);
+      result[obj.id] = obj;
     }
   }
-  const sortedJoinedArray = joinedArray.sort((a, b) => a.id - b.id);
 
-  return sortedJoinedArray;
+  return Object.values(result);
 };
 
 const arr1 = [
