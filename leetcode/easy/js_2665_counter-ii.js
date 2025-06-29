@@ -1,4 +1,6 @@
 /**
+ * 2665. Counter II
+ *
  * Write a function createCounter. It should accept an initial integer init. It should return an object with three functions.
  * The three functions are:
  * increment() increases the current value by 1 and then returns it.

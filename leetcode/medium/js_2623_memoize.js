@@ -1,6 +1,5 @@
 /**
  * LeetCode 2623 – Memoize
- * Difficulty: Medium
  *
  * Problem:
  * Implement a memoization function. Given a function `fn`, return a memoized version of it.

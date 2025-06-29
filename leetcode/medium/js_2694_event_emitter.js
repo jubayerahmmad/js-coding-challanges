@@ -1,6 +1,6 @@
 /**
  * 2694. Event Emitter
- **Design an EventEmitter class. This interface is similar (but with some differences) to the one found in Node.js or the Event Target interface of the DOM. The EventEmitter should allow for subscribing to events and emitting them.
+ ** Design an EventEmitter class. This interface is similar (but with some differences) to the one found in Node.js or the Event Target interface of the DOM. The EventEmitter should allow for subscribing to events and emitting them.
  * Your EventEmitter class should have the following two methods:
  ** subscribe - This method takes in two arguments: the name of an event as a string and a callback function. This callback function will later be called when the event is emitted.
  * An event should be able to have multiple listeners for the same event. When emitting an event with multiple callbacks, each should be called in the order in which they were subscribed. An array of results should be returned. You can assume no callbacks passed to subscribe are referentially identical.
@@ -9,15 +9,35 @@
  */
 
 class EventEmitter {
+  constructor() {
+    this.events = {};
+  }
+
   subscribe(eventName, callback) {
+    if (!this.events[eventName]) {
+      return [];
+    }
+
+    this.events[eventName].push(callback);
+
     return {
       unsubscribe: () => {
-        callback();
+        const index = this.events[eventName].indexOf(callback);
+        if (index !== -1) {
+          this.events[eventName].splice(index, 1);
+        }
       },
     };
   }
 
-  emit(eventName, args = []) {}
+  emit(eventName, args = []) {
+    if (!this.events[eventName]) {
+      return [];
+    }
+    const listeners = this.events[eventName];
+    const results = listeners.map((listener) => listener(...args));
+    return results;
+  }
 }
 
 /**

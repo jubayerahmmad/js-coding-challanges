@@ -1,5 +1,6 @@
 /**
  * 2726. Calculator with Method Chaining
+ *
  * Design a Calculator class. The class should provide the mathematical operations of addition, subtraction, multiplication, division, and exponentiation. It should also allow consecutive operations to be performed using method chaining. The Calculator class constructor should accept a number which serves as the initial value of result.
  * Your Calculator class should have the following methods:
  * add - This method adds the given number value to the result and returns the updated Calculator.
